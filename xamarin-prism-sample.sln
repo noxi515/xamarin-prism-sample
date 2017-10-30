@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2005
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NX.Notepad.Forms", "src\Core\NX.Notepad.Forms\NX.Notepad.Forms.csproj", "{0C0679A8-1DB7-4D87-B430-B833602B4149}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NX.Notepad.Forms", "src\Core\NX.Notepad.Forms\NX.Notepad.Forms.csproj", "{0C0679A8-1DB7-4D87-B430-B833602B4149}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NX.Notepad.Models", "src\Core\NX.Notepad.Models\NX.Notepad.Models.csproj", "{F05558FF-42A9-45AC-B9D6-71A825F67A0E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NX.Notepad.Models", "src\Core\NX.Notepad.Models\NX.Notepad.Models.csproj", "{F05558FF-42A9-45AC-B9D6-71A825F67A0E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{61103C54-27E8-4700-BC85-B3F97D37B73C}"
 EndProject
