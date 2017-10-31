@@ -3,17 +3,61 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
     xmlns:vm="clr-namespace:NX.Notepad.ViewModels;assembly=NX.Notepad.Models"
+    xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+    xmlns:converters="clr-namespace:NX.Notepad.Converters;assembly=NX.Notepad.Forms"
     mc:Ignorable="d"
+    prism:ViewModelLocator.AutowireViewModel="True"
     x:Class="NX.Notepad.Views.MemoListPage"
+    x:Name="Root"
     d:DataContext="{d:DesignInstance vm:MemoListPageViewModel, d:IsDesignTimeCreatable=False}">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ItemTappedEventArgsConverter x:Key="ItemTappedEventArgsConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Text="追加"
+            Command="{Binding MemoAddCommand}" />
+    </ContentPage.ToolbarItems>
+
     <ContentPage.Content>
-        <StackLayout>
-            <Entry
-                Text="{Binding Text, Mode=TwoWay}" />
-            <Label
-                Text="{Binding Text}"
-                FontSize="Medium" />
-        </StackLayout>
+
+        <ListView
+            ItemsSource="{Binding Memos}"
+            ItemSelected="OnMemoSelected">
+
+            <ListView.Behaviors>
+                <behaviors:EventToCommandBehavior
+                    EventName="ItemTapped"
+                    Command="{Binding MemoEditCommand}"
+                    EventArgsConverter="{StaticResource ItemTappedEventArgsConverter}" />
+            </ListView.Behaviors>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell
+                        Text="{Binding Title}"
+                        Detail="{Binding Memo.Body}">
+
+                        <TextCell.ContextActions>
+                            <MenuItem
+                                Text="削除"
+                                IsDestructive="True"
+                                Command="{Binding Source={x:Reference Root}, Path=BindingContext.DeleteMemoCommand}"
+                                CommandParameter="{Binding}" />
+                        </TextCell.ContextActions>
+
+                    </TextCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
+
     </ContentPage.Content>
+
 </ContentPage>

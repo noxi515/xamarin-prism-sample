@@ -112,13 +112,12 @@ namespace NX.Notepad.ViewModels
             }
 
             //編集
-            var id = parameters["id"] as Guid?;
-            if (id == null)
+            if (!Guid.TryParse(parameters["id"] as string, out var id))
             {
                 return;
             }
 
-            await DisplayMemoAsync(id.Value);
+            await DisplayMemoAsync(id);
         }
 
         private async Task DisplayMemoAsync(Guid id)

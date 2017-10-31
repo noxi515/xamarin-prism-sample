@@ -25,6 +25,7 @@ namespace NX.Notepad
             // Views
             Container.RegisterTypeForNavigation<NavigationPage>();
             Container.RegisterTypeForNavigation<MemoListPage>();
+            Container.RegisterTypeForNavigation<MemoEditPage>();
 
             // Models
             Container.RegisterType<IMemoRepository, MemoRepository>(new ContainerControlledLifetimeManager());
