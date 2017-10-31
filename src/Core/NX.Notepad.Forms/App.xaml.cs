@@ -1,4 +1,5 @@
-﻿using NX.Notepad.Logging;
+﻿using Microsoft.Practices.Unity;
+using NX.Notepad.Logging;
 using NX.Notepad.Views;
 using Prism.Logging;
 using Prism.Mvvm;
@@ -24,6 +25,9 @@ namespace NX.Notepad
             // Views
             Container.RegisterTypeForNavigation<NavigationPage>();
             Container.RegisterTypeForNavigation<MemoListPage>();
+
+            // Models
+            Container.RegisterType<IMemoRepository, MemoRepository>(new ContainerControlledLifetimeManager());
         }
 
         protected override ILoggerFacade CreateLogger()

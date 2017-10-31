@@ -1,0 +1,37 @@
+﻿<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:NX.Notepad.ViewModels;assembly=NX.Notepad.Models"
+    mc:Ignorable="d"
+    x:Class="NX.Notepad.Views.MemoEditPage"
+    d:DataContext="{d:DesignInstance vm:MemoEditPageViewModel, d:IsDesignTimeCreatable=False}">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Text="Done"
+            Command="{Binding DoneCommand}" />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <StackLayout
+            Orientation="Vertical"
+            Spacing="8">
+
+            <Entry
+                Text="{Binding Title, Mode=TwoWay}"
+                FontSize="Small" />
+
+            <BoxView
+                HeightRequest="2"
+                BackgroundColor="Gray" />
+
+            <Editor
+                Text="{Binding Body, Mode=TwoWay}"
+                FontSize="Small"
+                VerticalOptions="FillAndExpand" />
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

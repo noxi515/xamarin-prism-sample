@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="JetBrains.Annotations" Version="11.1.0" />
     <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms" Version="2.2.22" />
     <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.2.22" />
     <PackageReference Include="Xamarin.Forms" Version="2.4.0.18342" />
